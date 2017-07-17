@@ -149,7 +149,7 @@ class Fed(CrawlSpider):
         with open('data_dict_report_form.csv','a+') as f:
           f.write('"' + report + '","' + reportname + '","' + frb + '","' + desc +'","' + response.url +   '"\n') ## Write report_form.csv
         request = Request(link, callback=lambda r, frb=frb:self.item_parser(r, frb))
-        #yield request
+        yield request
     except IndexError as e:
       reportname = ''
 

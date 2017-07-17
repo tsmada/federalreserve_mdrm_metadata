@@ -37,7 +37,8 @@ class FedAILoader(object):
 
                     if row[0].strip() + '|' + row[7] not in self.item_name_desc:
                         self.item_name_desc.append(row[0].strip() + '|' + row[7])
-                        #print row[0].strip()[4:8]
+                        #print row[0].strip() ## IBFW2908
+                        #print row[7].strip() ## A Code indicating the reason a panel member exited the panel.
                 i+=1
         return sorted(self.item_name_desc)
 
