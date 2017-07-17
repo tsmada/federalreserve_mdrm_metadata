@@ -11,12 +11,6 @@ class FedAILoader(object):
 
     def __init__(self):
         """Call processing methods on object instantiation."""
-        with open('Federal Reserve Systems.csv', 'wb') as f:
-            writer = csv.writer(f, delimiter=',',
-                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Division'] + ['TechSystem'] + ['TechGroup'] +
-                ['DataSet'] + ['DataElem'] + ['BizTermGroup'] + ['BizTerm'] +
-                ['ParentDataElem'] + ['SubType'] + ['SourceUID'] + ['Description'])
         print 'Normalizing'
         self.normalize()
         print 'Normalized'
@@ -71,7 +65,6 @@ class FedAILoader(object):
                 i+=1
         return self.item_desc, self.report_desc, self.report_list
 
-
     def establish_hierarchy(self):
         """Use hierarchy from Fed site to build parents"""
         i=0
@@ -112,8 +105,6 @@ class FedAILoader(object):
                         path = ''
                 i+=1
         return self.paths, self.node_desc
-
-
 
     def join(self):
         """Join workbooks together for DataSet grain processing."""
